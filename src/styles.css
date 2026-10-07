@@ -181,18 +181,18 @@ html, body { background: var(--lp-bg); color: var(--lp-text); font-family: "Arch
 @keyframes lp-reel {
   0% { transform: translateY(0); filter: blur(2px); }
   8% { filter: blur(6px); }
-  58% { filter: blur(6px); }
-  78% { transform: translateY(calc(-19 * var(--lp-cell))); filter: blur(0); }
-  82% { transform: translateY(calc(-19 * var(--lp-cell) - 9px)); }
-  86% { transform: translateY(calc(-19 * var(--lp-cell))); }
+  50% { filter: blur(6px); }
+  62% { transform: translateY(calc(-19 * var(--lp-cell))); filter: blur(0); }
+  66% { transform: translateY(calc(-19 * var(--lp-cell) - 9px)); }
+  70% { transform: translateY(calc(-19 * var(--lp-cell))); }
   96% { transform: translateY(calc(-19 * var(--lp-cell))); filter: blur(0); }
   100% { transform: translateY(0); filter: blur(2px); }
 }
 @keyframes lp-slots-win {
-  0%, 70%, 100% { box-shadow: 0 12px 32px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.18); border-color: rgba(216,189,103,.5); }
-  82%, 94% { box-shadow: 0 0 0 3px rgba(216,189,103,.55), 0 0 38px rgba(216,189,103,.75), 0 12px 32px rgba(0,0,0,.5); border-color: #f1e3ac; }
+  0%, 58%, 100% { box-shadow: 0 12px 32px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.18); border-color: rgba(216,189,103,.5); }
+  70%, 92% { box-shadow: 0 0 0 3px rgba(216,189,103,.55), 0 0 38px rgba(216,189,103,.75), 0 12px 32px rgba(0,0,0,.5); border-color: #f1e3ac; }
 }
-@keyframes lp-jackpot { 0%, 70%, 100% { opacity: .35; } 82%, 94% { opacity: 1; } }
+@keyframes lp-jackpot { 0%, 58%, 100% { opacity: .35; } 70%, 92% { opacity: 1; } }
 .lp-slots__coins { position: absolute; left: -24px; right: -24px; top: -34px; height: 250px; pointer-events: none; }
 .lp-coin { position: absolute; top: 0; width: 17px; height: 17px; border-radius: 50%; opacity: 0; will-change: transform;
   background: radial-gradient(circle at 35% 30%, #f8e7ab, #d8bd67 55%, #a8873b);
