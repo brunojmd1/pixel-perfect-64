@@ -24,7 +24,7 @@ export const sendLeadCapi = createServerFn({ method: "POST" })
       const req = getRequest();
       const ua = req.headers.get("user-agent") ?? undefined;
       const ip =
-        (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() ||
+        (req.headers.get("x-forwarded-for") ?? "").split(",")[0]?.trim() ||
         undefined;
 
       const payload = {
