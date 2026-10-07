@@ -4,12 +4,10 @@ import duduMascot from "@/assets/dudu-mascot.png";
 // ===== Configurações fáceis de trocar =====
 const WHATSAPP_LINK = "https://chat.whatsapp.com/SEU-CODIGO-AQUI";
 const POSTER_URL = ""; // URL absoluta do poster 9:16 (1080x1920). Vazio = fundo temático.
-const GROUP_NAME = "[Nome do Grupo]";
-const OWNER = "[Seu nome ou marca]";
-const EMAIL = "seu-email@exemplo.com";
+const GROUP_NAME = "Dudu Faísca";
 
-const TITLE = "Duduknal · Grupo VIP";
-const DESC = "Entre no grupo VIP do Duduknal e acompanhe os conteúdos em primeira mão.";
+const TITLE = "Dudu Faísca · Grupo VIP";
+const DESC = "Entre no grupo VIP Dudu Faísca e acompanhe os conteúdos em primeira mão.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -125,7 +123,7 @@ const Chevron = () => (
 function Index() {
   return (
     <main>
-      <section className="lp-hero" aria-label="Duduknal Grupo VIP — participe agora do grupo no WhatsApp">
+      <section className="lp-hero" aria-label="Dudu Faísca Grupo VIP — participe agora do grupo no WhatsApp">
         {POSTER_URL && <div className="lp-hero__art" style={{ backgroundImage: `url(${POSTER_URL})` }} aria-hidden="true" />}
         <div className="lp-hero__overlay" aria-hidden="true" />
         <div className="lp-hero__content">
@@ -135,7 +133,7 @@ function Index() {
           </div>
           <SlotMachine />
           <p className="lp-eyebrow">Grupo VIP</p>
-          <h1 className="lp-title">Duduknal</h1>
+          <h1 className="lp-title">Dudu Faísca</h1>
           <p className="lp-sub">Participe agora</p>
           <div className="lp-arrows" aria-hidden="true">
             <Chevron />
@@ -148,24 +146,18 @@ function Index() {
       <footer className="lp-footer">
         <div className="lp-footer__inner">
           <p className="lp-tag">Informações da comunidade</p>
-          <h2>Duduknal &amp; {GROUP_NAME}</h2>
-          <p>O grupo {GROUP_NAME} no WhatsApp é administrado por Duduknal. Esta página apresenta o acesso ao convite desse grupo.</p>
+          <h2>{GROUP_NAME}</h2>
+          <p>O grupo {GROUP_NAME} no WhatsApp é um grupo VIP de conteúdos. Esta página apresenta o acesso ao convite desse grupo.</p>
           <p>Ao tocar em "Acessar grupo VIP", você abre o convite no WhatsApp. Confira o nome do grupo antes de decidir participar. Abrir o convite não confirma sua entrada.</p>
-          <p className="lp-label">Responsável por esta página</p>
-          <p className="lp-value">{OWNER}</p>
-          <p className="lp-label">Contato e privacidade</p>
-          <p className="lp-value"><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
 
           <details className="lp-policy">
             <summary>Política de Privacidade</summary>
             <div className="lp-policy__body">
               <h3>Como esta página usa dados</h3>
-              <p>{OWNER} é o responsável pelo tratamento dos dados desta página.</p>
               <p>Em visitas vindas de anúncios, o Meta Pixel e a API de Conversões da Meta podem registrar a visualização da página e o clique para o WhatsApp.</p>
               <p>Esses dados podem incluir a URL e seus parâmetros, data e horário, endereço IP, informações do navegador e identificadores de visitante ou de clique.</p>
               <p>Esta página não pede seu telefone nem seu e-mail e não lê mensagens do WhatsApp.</p>
               <p>Cookies podem guardar esses identificadores por até 90 dias. Saiba mais na <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Política de Privacidade da Meta</a>.</p>
-              <p>Para solicitar acesso ou exclusão dos seus dados, escreva para <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
             </div>
           </details>
         </div>
