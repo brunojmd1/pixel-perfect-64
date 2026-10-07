@@ -173,8 +173,8 @@ html, body { background: var(--lp-bg); color: var(--lp-text); font-family: "Arch
   background: linear-gradient(180deg, #07231c, #0a2f25 45%, #07231c);
   box-shadow: inset 0 6px 14px rgba(0,0,0,.65), inset 0 -6px 14px rgba(0,0,0,.65); }
 .lp-slots__strip { display: flex; flex-direction: column; will-change: transform; }
-.lp-slots__strip span { height: var(--lp-cell); font-size: 38px; line-height: var(--lp-cell); text-align: center;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,.5)); }
+.lp-slots__strip span { height: var(--lp-cell); display: flex; align-items: center; justify-content: center; }
+.lp-slots__strip svg { width: 44px; height: 44px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.55)); }
 .lp-slots__strip--a { animation: lp-reel 3.4s cubic-bezier(.2,.7,.3,1) infinite; }
 .lp-slots__strip--b { animation: lp-reel 3.4s cubic-bezier(.2,.7,.3,1) .3s infinite; }
 .lp-slots__strip--c { animation: lp-reel 3.4s cubic-bezier(.2,.7,.3,1) .6s infinite; }
@@ -194,9 +194,11 @@ html, body { background: var(--lp-bg); color: var(--lp-text); font-family: "Arch
 }
 @keyframes lp-jackpot { 0%, 70%, 100% { opacity: .35; } 82%, 94% { opacity: 1; } }
 .lp-slots__coins { position: absolute; left: -24px; right: -24px; top: -34px; height: 250px; pointer-events: none; }
-.lp-coin { position: absolute; top: 0; font-size: 18px; opacity: 0; will-change: transform;
-  animation-name: lp-coin-fall; animation-timing-function: linear; animation-iteration-count: infinite;
-  filter: drop-shadow(0 0 6px rgba(216,189,103,.85)); }
+.lp-coin { position: absolute; top: 0; width: 17px; height: 17px; border-radius: 50%; opacity: 0; will-change: transform;
+  background: radial-gradient(circle at 35% 30%, #f8e7ab, #d8bd67 55%, #a8873b);
+  border: 1.5px solid #8a6a25;
+  box-shadow: 0 0 9px rgba(216,189,103,.8), inset 0 1px 2px rgba(255,255,255,.7);
+  animation-name: lp-coin-fall; animation-timing-function: linear; animation-iteration-count: infinite; }
 @keyframes lp-coin-fall {
   0% { transform: translateY(0) rotate(0deg); opacity: 0; }
   10% { opacity: .95; }

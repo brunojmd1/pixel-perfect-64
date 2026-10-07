@@ -46,16 +46,71 @@ const COINS = [
   { left: "47%", delay: 1.9, dur: 2.4 }, { left: "72%", delay: 1.6, dur: 2.8 },
 ];
 
+type Sym = "seven" | "cherry" | "lemon" | "bell" | "diamond" | "star";
+// Posições 0 e 19 precisam ser "seven" para o giro em loop parar sempre no jackpot.
+const STRIP: Sym[] = ["seven", "cherry", "lemon", "bell", "diamond", "star", "cherry", "seven", "lemon", "diamond", "star", "bell", "cherry", "diamond", "seven", "star", "bell", "cherry", "diamond", "seven"];
+
+const Sym = ({ kind }: { kind: Sym }) => {
+  switch (kind) {
+    case "seven":
+      return (
+        <svg viewBox="0 0 40 40">
+          <text x="20" y="32" textAnchor="middle" fontSize="32" fontWeight="900" fontFamily="Anton, sans-serif" fill="#f2d98d" stroke="#8a6a25" strokeWidth="1.2">7</text>
+        </svg>
+      );
+    case "cherry":
+      return (
+        <svg viewBox="0 0 40 40">
+          <path d="M20 5 C16 11 13 16 13 22" stroke="#2f9e63" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <path d="M20 5 C24 11 28 15 28 20" stroke="#2f9e63" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <circle cx="13" cy="28" r="7" fill="#e0313c" />
+          <circle cx="28" cy="26" r="6.5" fill="#c8242f" />
+          <circle cx="10.5" cy="25.5" r="2" fill="#ff9aa0" opacity=".85" />
+        </svg>
+      );
+    case "lemon":
+      return (
+        <svg viewBox="0 0 40 40">
+          <ellipse cx="20" cy="23" rx="12" ry="8.5" fill="#f7d537" transform="rotate(-18 20 23)" />
+          <ellipse cx="20" cy="23" rx="12" ry="8.5" fill="none" stroke="#d9b41f" strokeWidth="1.5" transform="rotate(-18 20 23)" />
+          <circle cx="14" cy="20" r="2" fill="#fce990" opacity=".9" />
+        </svg>
+      );
+    case "bell":
+      return (
+        <svg viewBox="0 0 40 40">
+          <path d="M20 8c-6 0-9 5-9 10 0 6-2 8-4 10h26c-2-2-4-4-4-10 0-5-3-10-9-10z" fill="#f0c548" stroke="#c9992b" strokeWidth="1.2" />
+          <circle cx="20" cy="31.5" r="3" fill="#c9992b" />
+          <circle cx="20" cy="6.5" r="2.5" fill="#c9992b" />
+        </svg>
+      );
+    case "diamond":
+      return (
+        <svg viewBox="0 0 40 40">
+          <polygon points="20,5 33,15 20,35 7,15" fill="#4fd8ab" />
+          <polygon points="20,5 27,15 20,35 13,15" fill="#8ff0d1" />
+          <polygon points="7,15 33,15" fill="none" stroke="#2ea881" strokeWidth="1.2" />
+        </svg>
+      );
+    case "star":
+      return (
+        <svg viewBox="0 0 40 40">
+          <polygon points="20,4 24.7,14.6 36,15.8 27.6,23.5 30,35 20,29 10,35 12.4,23.5 4,15.8 15.3,14.6" fill="#f2c94c" stroke="#c9992b" strokeWidth="1.2" />
+        </svg>
+      );
+  }
+};
+
 const SlotMachine = () => (
   <div className="lp-slots" aria-hidden="true">
     <div className="lp-slots__machine">
-      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--a">{REEL_SYMBOLS.map((s, i) => <span key={i}>{s}</span>)}</div></div>
-      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--b">{REEL_SYMBOLS.map((s, i) => <span key={i}>{s}</span>)}</div></div>
-      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--c">{REEL_SYMBOLS.map((s, i) => <span key={i}>{s}</span>)}</div></div>
+      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--a">{STRIP.map((s, i) => <span key={i}><Sym kind={s} /></span>)}</div></div>
+      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--b">{STRIP.map((s, i) => <span key={i}><Sym kind={s} /></span>)}</div></div>
+      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--c">{STRIP.map((s, i) => <span key={i}><Sym kind={s} /></span>)}</div></div>
     </div>
     <div className="lp-slots__coins">
       {COINS.map((c, i) => (
-        <span key={i} className="lp-coin" style={{ left: c.left, animationDelay: `${c.delay}s`, animationDuration: `${c.dur}s` }}>🪙</span>
+        <span key={i} className="lp-coin" style={{ left: c.left, animationDelay: `${c.delay}s`, animationDuration: `${c.dur}s` }} />
       ))}
     </div>
   </div>
