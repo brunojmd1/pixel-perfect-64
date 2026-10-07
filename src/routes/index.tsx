@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import duduMascot from "@/assets/dudu-mascot.png";
 
 // ===== Configurações fáceis de trocar =====
 const WHATSAPP_LINK = "https://chat.whatsapp.com/SEU-CODIGO-AQUI";
@@ -128,6 +129,10 @@ function Index() {
         {POSTER_URL && <div className="lp-hero__art" style={{ backgroundImage: `url(${POSTER_URL})` }} aria-hidden="true" />}
         <div className="lp-hero__overlay" aria-hidden="true" />
         <div className="lp-hero__content">
+          <div className="lp-dudu" aria-hidden="true">
+            <span className="lp-dudu__ring" />
+            <img src={duduMascot} alt="" className="lp-dudu__img" />
+          </div>
           <SlotMachine />
           <p className="lp-eyebrow">Grupo VIP</p>
           <h1 className="lp-title">Duduknal</h1>
