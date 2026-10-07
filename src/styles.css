@@ -166,7 +166,7 @@ html, body { background: var(--lp-bg); color: var(--lp-text); font-family: "Arch
 .lp-dudu__ring { position: absolute; inset: 8px; border-radius: 50%; border: 3px solid rgba(216,189,103,.55);
   box-shadow: 0 0 34px rgba(216,189,103,.45), inset 0 0 34px rgba(216,189,103,.25);
   animation: lp-dudu-ring 3.2s ease-in-out infinite; }
-@keyframes lp-dudu-float { 0%,100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-12px) rotate(1.5deg); } }
+@keyframes lp-dudu-float { 0%,100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-18px) rotate(1.5deg); } }
 @keyframes lp-dudu-ring { 0%,100% { transform: scale(.92); opacity: .5; } 50% { transform: scale(1.06); opacity: 1; } }
 /* ---- Caça-níquel (slots) da capa ---- */
 .lp-slots { position: relative; display: flex; justify-content: center; margin-bottom: 24px; --lp-cell: 72px; }
