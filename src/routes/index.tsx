@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { sendLeadCapi } from "@/lib/meta-capi.functions";
 import duduMascot from "@/assets/dudu-mascot.png";
 import lpCover from "@/assets/lp-cover.jpg";
 
 // ===== Configurações fáceis de trocar =====
-const WHATSAPP_LINK = "https://chat.whatsapp.com/SEU-CODIGO-AQUI";
+const TELEGRAM_LINK = "https://t.me/dudufaisca";
 const POSTER_URL = ""; // URL absoluta do poster 9:16 (1080x1920). Vazio = usa a arte de slots padrão.
 const GROUP_NAME = "Dudu Faísca";
 const HERO_BG = POSTER_URL || lpCover;
@@ -31,9 +32,20 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function trackContact() {
+// Dispara o evento "Lead" no clique do CTA: via Meta Pixel (navegador)
+// e via API de Conversões (servidor), com o mesmo eventId para deduplicar.
+function trackLead() {
   const w = window as unknown as { fbq?: (...a: unknown[]) => void };
-  if (typeof w.fbq === "function") w.fbq("track", "Contact");
+  const eventId =
+    typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
+  if (typeof w.fbq === "function")
+    w.fbq("track", "Lead", {}, { eventID: eventId });
+  const fbp = document.cookie.match(/_fbp=([^;]+)/)?.[1];
+  sendLeadCapi({
+    data: { eventId, fbp, sourceUrl: window.location.href },
+  }).catch(() => {});
 }
 
 const COINS = [
