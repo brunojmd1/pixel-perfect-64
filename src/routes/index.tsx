@@ -35,7 +35,6 @@ function trackContact() {
   if (typeof w.fbq === "function") w.fbq("track", "Contact");
 }
 
-const REEL_SYMBOLS = ["7️⃣", "🍒", "🍋", "🔔", "💎", "⭐", "🍒", "7️⃣", "🍋", "💎", "⭐", "🔔", "🍒", "💎", "7️⃣", "⭐", "🔔", "🍒", "💎", "7️⃣"];
 const COINS = [
   { left: "4%", delay: 0, dur: 2.2 }, { left: "14%", delay: 0.5, dur: 2.6 },
   { left: "24%", delay: 1.1, dur: 2.3 }, { left: "33%", delay: 0.2, dur: 2.8 },
