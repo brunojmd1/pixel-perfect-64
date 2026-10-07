@@ -235,4 +235,9 @@ html, body { background: var(--lp-bg); color: var(--lp-text); font-family: "Arch
 .lp-policy__body { padding: 0 18px 18px; }
 .lp-policy__body h3 { font-weight: 700; margin-bottom: 10px; }
 .lp-policy__body p { font-size: 14px; text-align: left; }
-@media (prefers-reduced-motion: reduce) { .lp-arrows svg, .lp-btn { animation: none; } .lp-arrows svg { opacity: .8; } }
+@media (prefers-reduced-motion: reduce) {
+  .lp-arrows svg, .lp-btn, .lp-slots__machine, .lp-slots__strip, .lp-slots__machine::before, .lp-coin { animation: none; }
+  .lp-arrows svg { opacity: .8; }
+  .lp-slots__machine::before { opacity: 1; }
+  .lp-coin { opacity: 0; }
+}
