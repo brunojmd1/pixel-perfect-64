@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import duduMascot from "@/assets/dudu-mascot.png";
+import lpCover from "@/assets/lp-cover.jpg";
 
 // ===== Configurações fáceis de trocar =====
 const WHATSAPP_LINK = "https://chat.whatsapp.com/SEU-CODIGO-AQUI";
-const POSTER_URL = ""; // URL absoluta do poster 9:16 (1080x1920). Vazio = fundo temático.
+const POSTER_URL = ""; // URL absoluta do poster 9:16 (1080x1920). Vazio = usa a arte de slots padrão.
 const GROUP_NAME = "Dudu Faísca";
+const HERO_BG = POSTER_URL || lpCover;
 
 const TITLE = "Dudu Faísca · Grupo VIP";
 const DESC = "Entre no grupo VIP Dudu Faísca e acompanhe os conteúdos em primeira mão.";
@@ -124,7 +126,7 @@ function Index() {
   return (
     <main>
       <section className="lp-hero" aria-label="Dudu Faísca Grupo VIP — participe agora do grupo no WhatsApp">
-        {POSTER_URL && <div className="lp-hero__art" style={{ backgroundImage: `url(${POSTER_URL})` }} aria-hidden="true" />}
+        <div className="lp-hero__art" style={{ backgroundImage: `url(${HERO_BG})` }} aria-hidden="true" />
         <div className="lp-hero__overlay" aria-hidden="true" />
         <div className="lp-hero__content">
           <div className="lp-dudu" aria-hidden="true">
