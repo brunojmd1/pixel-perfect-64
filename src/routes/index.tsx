@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { sendLeadCapi } from "@/lib/meta-capi.functions";
 import duduMascot from "@/assets/dudu-mascot.png";
 import lpCover from "@/assets/lp-cover.jpg";
+import mascotTiger from "@/assets/mascot-tiger.webp";
+import mascotZeus from "@/assets/mascot-zeus.webp";
+import mascotPlane from "@/assets/mascot-plane.webp";
 
 // ===== Configurações fáceis de trocar =====
 const TELEGRAM_LINK = "https://t.me/dudufaisca";
@@ -175,6 +178,11 @@ function Index() {
         <div className="lp-hero__art" style={{ backgroundImage: `url(${HERO_BG})` }} aria-hidden="true" />
         <div className="lp-hero__overlay" aria-hidden="true" />
         <BgSymbols />
+        <div className="lp-mascots" aria-hidden="true">
+          <img src={mascotPlane} alt="" className="lp-mascot lp-mascot--plane" loading="lazy" />
+          <img src={mascotTiger} alt="" className="lp-mascot lp-mascot--tiger" loading="lazy" />
+          <img src={mascotZeus} alt="" className="lp-mascot lp-mascot--zeus" loading="lazy" />
+        </div>
         <div className="lp-hero__content">
           <div className="lp-dudu" aria-hidden="true">
             <span className="lp-dudu__rays" />

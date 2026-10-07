@@ -170,6 +170,25 @@ html, body { background: var(--lp-bg); color: var(--lp-text); font-family: "Arch
   55% { opacity: var(--peak, .4); }
   100% { transform: translateY(-70px) rotate(10deg) scale(1.04); opacity: 0; }
 }
+/* ---- Mascotes de jogos flutuando no cenário ---- */
+.lp-mascots { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.lp-mascot { position: absolute; filter: drop-shadow(0 10px 22px rgba(0,0,0,.5)) drop-shadow(0 0 18px rgba(216,189,103,.3)); }
+.lp-mascot--plane { left: 2%; top: 7%; width: clamp(96px, 26vw, 170px);
+  animation: lp-plane-fly 7s ease-in-out infinite; }
+.lp-mascot--tiger { left: -1%; bottom: 39%; width: clamp(72px, 19vw, 130px);
+  animation: lp-mascot-bob 4.6s ease-in-out .8s infinite; }
+.lp-mascot--zeus { right: -1%; top: 26%; width: clamp(64px, 17vw, 115px);
+  animation: lp-mascot-bob 5.4s ease-in-out 1.6s infinite; }
+@keyframes lp-mascot-bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes lp-plane-fly {
+  0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+  25% { transform: translate(14px, -12px) rotate(2deg); }
+  55% { transform: translate(26px, 2px) rotate(-1deg); }
+  80% { transform: translate(10px, -8px) rotate(3deg); }
+}
 .lp-hero__content { position: relative; text-align: center; padding: 0 20px 140px; }
 /* ---- Mascote Dudu da capa ----
    O PNG é cortado na base, então ele fica sentado ATRÁS da máquina de slots:
@@ -288,7 +307,7 @@ html, body { background: var(--lp-bg); color: var(--lp-text); font-family: "Arch
 .lp-policy__body p { font-size: 14px; text-align: left; }
 @media (prefers-reduced-motion: reduce) {
   .lp-arrows svg, .lp-btn::after, .lp-btn__arrow, .lp-slots__machine, .lp-slots__strip, .lp-slots__machine::before,
-  .lp-coin, .lp-dudu, .lp-dudu__rays, .lp-bg-symbols span { animation: none; }
+  .lp-coin, .lp-dudu, .lp-dudu__rays, .lp-bg-symbols span, .lp-mascot { animation: none; }
   .lp-arrows svg { opacity: .8; }
   .lp-slots__machine::before { opacity: 1; }
   .lp-btn::after { display: none; }
