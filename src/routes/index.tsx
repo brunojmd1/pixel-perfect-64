@@ -74,6 +74,7 @@ function Index() {
         {POSTER_URL && <div className="lp-hero__art" style={{ backgroundImage: `url(${POSTER_URL})` }} aria-hidden="true" />}
         <div className="lp-hero__overlay" aria-hidden="true" />
         <div className="lp-hero__content">
+          <SlotMachine />
           <p className="lp-eyebrow">Grupo VIP</p>
           <h1 className="lp-title">Duduknal</h1>
           <p className="lp-sub">Participe agora</p>
