@@ -137,7 +137,7 @@ const Chevron = () => (
 function Index() {
   return (
     <main>
-      <section className="lp-hero" aria-label="Dudu Faísca Grupo VIP — participe agora do grupo no WhatsApp">
+      <section className="lp-hero" aria-label="Dudu Faísca Grupo VIP — participe agora do grupo no Telegram">
         <div className="lp-hero__art" style={{ backgroundImage: `url(${HERO_BG})` }} aria-hidden="true" />
         <div className="lp-hero__overlay" aria-hidden="true" />
         <div className="lp-hero__content">
@@ -161,16 +161,16 @@ function Index() {
         <div className="lp-footer__inner">
           <p className="lp-tag">Informações da comunidade</p>
           <h2>{GROUP_NAME}</h2>
-          <p>O grupo {GROUP_NAME} no WhatsApp é um grupo VIP de conteúdos. Esta página apresenta o acesso ao convite desse grupo.</p>
-          <p>Ao tocar em "Acessar grupo VIP", você abre o convite no WhatsApp. Confira o nome do grupo antes de decidir participar. Abrir o convite não confirma sua entrada.</p>
+          <p>O grupo {GROUP_NAME} no Telegram é um grupo VIP de conteúdos. Esta página apresenta o acesso ao convite desse grupo.</p>
+          <p>Ao tocar em "Acessar grupo VIP", você abre o convite no Telegram. Confira o nome do grupo antes de decidir participar. Abrir o convite não confirma sua entrada.</p>
 
           <details className="lp-policy">
             <summary>Política de Privacidade</summary>
             <div className="lp-policy__body">
               <h3>Como esta página usa dados</h3>
-              <p>Em visitas vindas de anúncios, o Meta Pixel e a API de Conversões da Meta podem registrar a visualização da página e o clique para o WhatsApp.</p>
+              <p>Em visitas vindas de anúncios, o Meta Pixel e a API de Conversões da Meta podem registrar a visualização da página e o clique no botão para entrar no grupo.</p>
               <p>Esses dados podem incluir a URL e seus parâmetros, data e horário, endereço IP, informações do navegador e identificadores de visitante ou de clique.</p>
-              <p>Esta página não pede seu telefone nem seu e-mail e não lê mensagens do WhatsApp.</p>
+              <p>Esta página não pede seu telefone nem seu e-mail e não lê mensagens do Telegram.</p>
               <p>Cookies podem guardar esses identificadores por até 90 dias. Saiba mais na <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Política de Privacidade da Meta</a>.</p>
             </div>
           </details>
