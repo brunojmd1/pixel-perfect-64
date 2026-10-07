@@ -35,6 +35,32 @@ function trackContact() {
   if (typeof w.fbq === "function") w.fbq("track", "Contact");
 }
 
+const REEL_SYMBOLS = ["7️⃣", "🍒", "🍋", "🔔", "💎", "⭐", "🍒", "7️⃣", "🍋", "💎", "⭐", "🔔", "🍒", "💎", "7️⃣", "⭐", "🔔", "🍒", "💎", "7️⃣"];
+const COINS = [
+  { left: "4%", delay: 0, dur: 2.2 }, { left: "14%", delay: 0.5, dur: 2.6 },
+  { left: "24%", delay: 1.1, dur: 2.3 }, { left: "33%", delay: 0.2, dur: 2.8 },
+  { left: "42%", delay: 0.8, dur: 2.1 }, { left: "50%", delay: 1.4, dur: 2.7 },
+  { left: "58%", delay: 0.4, dur: 2.4 }, { left: "67%", delay: 1.0, dur: 2.9 },
+  { left: "76%", delay: 0.1, dur: 2.2 }, { left: "85%", delay: 0.7, dur: 2.5 },
+  { left: "94%", delay: 1.3, dur: 2.3 }, { left: "9%", delay: 1.7, dur: 2.6 },
+  { left: "47%", delay: 1.9, dur: 2.4 }, { left: "72%", delay: 1.6, dur: 2.8 },
+];
+
+const SlotMachine = () => (
+  <div className="lp-slots" aria-hidden="true">
+    <div className="lp-slots__machine">
+      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--a">{REEL_SYMBOLS.map((s, i) => <span key={i}>{s}</span>)}</div></div>
+      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--b">{REEL_SYMBOLS.map((s, i) => <span key={i}>{s}</span>)}</div></div>
+      <div className="lp-slots__reel"><div className="lp-slots__strip lp-slots__strip--c">{REEL_SYMBOLS.map((s, i) => <span key={i}>{s}</span>)}</div></div>
+    </div>
+    <div className="lp-slots__coins">
+      {COINS.map((c, i) => (
+        <span key={i} className="lp-coin" style={{ left: c.left, animationDelay: `${c.delay}s`, animationDuration: `${c.dur}s` }}>🪙</span>
+      ))}
+    </div>
+  </div>
+);
+
 const Chevron = () => (
   <svg viewBox="0 0 28 16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 3l11 10L25 3" />
