@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-const PIXEL_ID = "759780122611448";
+const PIXEL_ID = "911996161946270";
 
 // Envia o evento "Lead" para a API de Conversões da Meta (lado servidor).
 // O eventId é gerado no navegador e compartilhado com o Pixel para deduplicação.
