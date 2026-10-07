@@ -5,9 +5,14 @@ import lpCover from "@/assets/lp-cover.jpg";
 
 // ===== Configurações fáceis de trocar =====
 const TELEGRAM_LINK = "https://t.me/dudufaisca";
-const POSTER_URL = ""; // URL absoluta do poster 9:16 (1080x1920). Vazio = usa a arte de slots padrão.
 const GROUP_NAME = "Dudu Faísca";
-const HERO_BG = POSTER_URL || lpCover;
+// Domínio publicado (troque ao conectar um domínio próprio) — usado no preview do link (og:image).
+const SITE_URL = "https://pixel-perfect-64.lovable.app";
+const OG_IMAGE = `${SITE_URL}/poster.jpg`;
+// Responsável e contato exibidos no rodapé (transparência / LGPD).
+const RESPONSIBLE = "Dudu Faísca";
+const CONTACT_EMAIL = "contato@exemplo.com"; // TROQUE pelo seu e-mail real antes de rodar tráfego.
+const HERO_BG = lpCover;
 
 const TITLE = "Dudu Faísca · Grupo VIP";
 const DESC = "Entre no grupo VIP Dudu Faísca e acompanhe os conteúdos em primeira mão.";
@@ -21,12 +26,9 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      ...(POSTER_URL
-        ? [
-            { property: "og:image", content: POSTER_URL },
-            { name: "twitter:image", content: POSTER_URL },
-          ]
-        : []),
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:url", content: SITE_URL },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
   }),
   component: Index,
@@ -198,10 +200,18 @@ function Index() {
           <p>O grupo {GROUP_NAME} no Telegram é um grupo VIP de conteúdos. Esta página apresenta o acesso ao convite desse grupo.</p>
           <p>Ao tocar em "Acessar grupo VIP", você abre o convite no Telegram. Confira o nome do grupo antes de decidir participar. Abrir o convite não confirma sua entrada.</p>
 
+          <p className="lp-label">Responsável por esta página</p>
+          <p className="lp-value">{RESPONSIBLE}</p>
+          <p className="lp-label">Contato e privacidade</p>
+          <p className="lp-value">
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          </p>
+
           <details className="lp-policy">
             <summary>Política de Privacidade</summary>
             <div className="lp-policy__body">
               <h3>Como esta página usa dados</h3>
+              <p>{RESPONSIBLE} é responsável pelo tratamento dos dados desta página. Para dúvidas ou solicitações de acesso, correção ou exclusão de dados, escreva para {CONTACT_EMAIL}.</p>
               <p>Em visitas vindas de anúncios, o Meta Pixel e a API de Conversões da Meta podem registrar a visualização da página e o clique no botão para entrar no grupo.</p>
               <p>Esses dados podem incluir a URL e seus parâmetros, data e horário, endereço IP, informações do navegador e identificadores de visitante ou de clique.</p>
               <p>Esta página não pede seu telefone nem seu e-mail e não lê mensagens do Telegram.</p>
