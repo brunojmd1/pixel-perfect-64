@@ -4,12 +4,10 @@ import duduMascot from "@/assets/dudu-mascot.png";
 // ===== Configurações fáceis de trocar =====
 const WHATSAPP_LINK = "https://chat.whatsapp.com/SEU-CODIGO-AQUI";
 const POSTER_URL = ""; // URL absoluta do poster 9:16 (1080x1920). Vazio = fundo temático.
-const GROUP_NAME = "[Nome do Grupo]";
-const OWNER = "[Seu nome ou marca]";
-const EMAIL = "seu-email@exemplo.com";
+const GROUP_NAME = "Dudu Faísca";
 
-const TITLE = "Duduknal · Grupo VIP";
-const DESC = "Entre no grupo VIP do Duduknal e acompanhe os conteúdos em primeira mão.";
+const TITLE = "Dudu Faísca · Grupo VIP";
+const DESC = "Entre no grupo VIP Dudu Faísca e acompanhe os conteúdos em primeira mão.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -125,7 +123,7 @@ const Chevron = () => (
 function Index() {
   return (
     <main>
-      <section className="lp-hero" aria-label="Duduknal Grupo VIP — participe agora do grupo no WhatsApp">
+      <section className="lp-hero" aria-label="Dudu Faísca Grupo VIP — participe agora do grupo no WhatsApp">
         {POSTER_URL && <div className="lp-hero__art" style={{ backgroundImage: `url(${POSTER_URL})` }} aria-hidden="true" />}
         <div className="lp-hero__overlay" aria-hidden="true" />
         <div className="lp-hero__content">
@@ -135,7 +133,7 @@ function Index() {
           </div>
           <SlotMachine />
           <p className="lp-eyebrow">Grupo VIP</p>
-          <h1 className="lp-title">Duduknal</h1>
+          <h1 className="lp-title">Dudu Faísca</h1>
           <p className="lp-sub">Participe agora</p>
           <div className="lp-arrows" aria-hidden="true">
             <Chevron />
