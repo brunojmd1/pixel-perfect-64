@@ -128,6 +128,38 @@ const SlotMachine = () => (
   </div>
 );
 
+// Símbolos de slots flutuando ao fundo do hero (decorativo)
+const BG_SYMBOLS: { kind: Sym; left: string; top: string; size: number; dur: number; delay: number; peak: number }[] = [
+  { kind: "seven",   left: "6%",  top: "16%", size: 46, dur: 10,   delay: 0,   peak: 0.42 },
+  { kind: "cherry",  left: "88%", top: "12%", size: 38, dur: 11.5, delay: 1.2, peak: 0.38 },
+  { kind: "diamond", left: "10%", top: "44%", size: 34, dur: 9,    delay: 2.4, peak: 0.34 },
+  { kind: "bell",    left: "90%", top: "40%", size: 40, dur: 12,   delay: 0.8, peak: 0.36 },
+  { kind: "star",    left: "4%",  top: "68%", size: 30, dur: 10.5, delay: 3.1, peak: 0.3 },
+  { kind: "seven",   left: "92%", top: "66%", size: 32, dur: 9.5,  delay: 1.9, peak: 0.32 },
+  { kind: "lemon",   left: "16%", top: "6%",  size: 28, dur: 13,   delay: 4.2, peak: 0.28 },
+  { kind: "diamond", left: "80%", top: "84%", size: 30, dur: 11,   delay: 2.8, peak: 0.3 },
+];
+
+const BgSymbols = () => (
+  <div className="lp-bg-symbols" aria-hidden="true">
+    {BG_SYMBOLS.map((s, i) => (
+      <span
+        key={i}
+        style={{
+          left: s.left,
+          top: s.top,
+          "--size": `${s.size}px`,
+          "--dur": `${s.dur}s`,
+          "--delay": `${s.delay}s`,
+          "--peak": s.peak,
+        } as React.CSSProperties}
+      >
+        <Sym kind={s.kind} />
+      </span>
+    ))}
+  </div>
+);
+
 const Chevron = () => (
   <svg viewBox="0 0 28 16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 3l11 10L25 3" />
@@ -140,9 +172,11 @@ function Index() {
       <section className="lp-hero" aria-label="Dudu Faísca Grupo VIP — participe agora do grupo no Telegram">
         <div className="lp-hero__art" style={{ backgroundImage: `url(${HERO_BG})` }} aria-hidden="true" />
         <div className="lp-hero__overlay" aria-hidden="true" />
+        <BgSymbols />
         <div className="lp-hero__content">
           <div className="lp-dudu" aria-hidden="true">
-            <span className="lp-dudu__ring" />
+            <span className="lp-dudu__rays" />
+            <span className="lp-dudu__glow" />
             <img src={duduMascot} alt="" className="lp-dudu__img" />
           </div>
           <SlotMachine />
@@ -179,10 +213,18 @@ function Index() {
 
       <div className="lp-cta-bar">
         <a className="lp-btn" href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer" onClick={trackLead}>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
+          <span className="lp-btn__chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="#fff">
+              <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
+            </svg>
+          </span>
+          <span className="lp-btn__text">
+            <strong>Acessar grupo VIP</strong>
+            <small>Entrada gratuita no Telegram</small>
+          </span>
+          <svg className="lp-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
-          Acessar grupo VIP
         </a>
       </div>
     </main>
